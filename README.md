@@ -12,11 +12,11 @@ I am a computer science and cybersecurity student focused on strengthening my Li
 
 ## Featured Projects
 
-| Project | Overview | Source |
-| --- | --- | --- |
-| Network Security Monitor | Captures and analyzes network traffic, summarizes protocols, and displays security alerts through a monitoring dashboard. | [GitHub](https://github.com/iam-varun2008/network-security-monitor) |
-| Port Vulnerability Scanner | Scans authorized targets, identifies exposed services, evaluates potential risks, and generates recommendations. | [GitHub](https://github.com/iam-varun2008/port-vulnerability-scanner) |
-| Log Analyzer and Threat Detector | Parses access logs and detects suspicious activity such as failed logins, admin access, and unusual requests. | [GitHub](https://github.com/iam-varun2008/Log-Analyzer-and-Threat-Detector) |
+| Project | Overview |
+| --- | --- |
+| Network Security Monitor | Captures and analyzes network traffic, summarizes protocols, and displays security alerts through a monitoring dashboard. |
+| Port Vulnerability Scanner | Scans authorized targets, identifies exposed services, evaluates potential risks, and generates recommendations. |
+| Log Analyzer and Threat Detector | Parses access logs and detects suspicious activity such as failed logins, admin access, and unusual requests. |
 
 The website includes project screenshots and playable demonstrations for all three projects.
 
