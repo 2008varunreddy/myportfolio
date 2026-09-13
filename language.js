@@ -376,7 +376,7 @@
 
   function loadPortfolio() {
     const script = document.createElement("script");
-    script.src = "app.js?v=20260821-ielts-timeline";
+    script.src = "app.js?v=20260912-glass-cards";
     script.onload = () => {
       window.removeEventListener("pointermove", trackGateCursor);
       document.body.classList.remove("language-pending");

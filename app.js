@@ -375,6 +375,7 @@ function createMotionScenes() {
       heroTimeline
         .to([qs(".hero-kicker"), qs(".hero-copy"), qs(".scroll-note")], { yPercent: -100, autoAlpha: 0, duration: .05 }, .05)
         .to(qsa(".hero-nav i"), { autoAlpha: 0, duration: .04 }, .01)
+        .to(heroNavs, { autoAlpha: 0, duration: .08 }, .3)
         .to(heroTraits, { x: "-25vw", y: "-5vw", scale: .3, autoAlpha: 0, duration: .15, ease:"power1.inOut" }, .05)
         .to(heroPhoto, { y: "23vh", scale: 2.12, filter: "blur(90px)", autoAlpha:.3, duration: .67 }, .03)
         .to(heroTitle, { x: "38vw", y: "-40vh", scale: .58, filter:"blur(18px)", autoAlpha:0, duration: .37, ease:"power1.inOut" }, .08)
@@ -394,7 +395,7 @@ function createMotionScenes() {
       });
 
       const maxProjectShift = () => Math.max(0, projectTrack.scrollWidth - (innerWidth - 255) + 68);
-      gsap.set(projectCards, { yPercent: 10, scale:.6, autoAlpha: 0 });
+      gsap.set(projectCards, { yPercent: 6, scale:.96, autoAlpha: 0 });
       gsap.to(projectCards.slice(0, 2), {
         yPercent:0, scale:1, autoAlpha:1, duration:1.1, stagger:.1, ease:"expo.out",
         scrollTrigger:{ trigger:work, start:"top 80%", once:true }
@@ -439,7 +440,7 @@ function createMotionScenes() {
   gsap.set(timelineDots, { scale:0, autoAlpha:0 });
   qsa(".timeline:not([hidden]) .timeline-card").forEach((card, index) => {
     gsap.fromTo(card,
-      { yPercent:15, scale:.65, autoAlpha:0 },
+      { yPercent:6, scale:.96, autoAlpha:0 },
       { yPercent:0, scale:1, autoAlpha:1, ease:"none", scrollTrigger:{ trigger:card, start:"top 102%", end:"top 84%", scrub:.55 } }
     );
     gsap.fromTo(qsa(".roll-line", card), { yPercent:105 }, {
@@ -564,7 +565,7 @@ function createMotionScenes() {
     scrollTrigger: { trigger: ".service-grid", start: "top 90%", once:true }
   });
 
-  gsap.fromTo(".quote-card", { yPercent:10, scale:.7, autoAlpha:0 }, {
+  gsap.fromTo(".quote-card", { yPercent:6, scale:.97, autoAlpha:0 }, {
     yPercent:0, scale:1, autoAlpha:1, stagger:.09, duration:1, ease:"expo.out",
     scrollTrigger:{ trigger:".testimonial-track", start:"top 88%", once:true }
   });
@@ -686,23 +687,45 @@ if (cursor && matchMedia("(pointer:fine)").matches) {
     gsap.to(cursor, { left: event.clientX, top: event.clientY, duration: .18, overwrite: "auto", ease: "power2.out" });
   });
 
-  if (matchMedia("(pointer:fine)").matches) {
-    qsa(".timeline-card,.project-card,.art-card,.goal-card,.contact-card").forEach(card => {
-      const layers = qsa(":scope > *", card).filter(layer => !layer.classList.contains("gallery-control"));
-      card.addEventListener("pointermove", event => {
-        const bounds = card.getBoundingClientRect();
-        const x = (event.clientX - bounds.left) / bounds.width - .5;
-        const y = (event.clientY - bounds.top) / bounds.height - .5;
-        gsap.to(layers, { x:x * 9, y:y * 9, rotateX:-y * 3, rotateY:x * 3, transformPerspective:900, duration:.38, ease:"power2.out", overwrite:true });
-      });
-      card.addEventListener("pointerleave", () => gsap.to(layers, { x:0, y:0, rotateX:0, rotateY:0, duration:.65, ease:"expo.out", overwrite:true }));
-    });
-  }
   qsa(".cursor-target").forEach(item => {
     item.addEventListener("mouseenter", () => cursor.classList.add("is-view"));
     item.addEventListener("mouseleave", () => cursor.classList.remove("is-view"));
   });
 }
+
+// Animate the surface, leaving the card's content and scroll transforms intact.
+const glassPointer = matchMedia("(hover:hover) and (pointer:fine)");
+const glassReducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+qsa(".stat-card,.traits-card,.timeline-card,.project-card,.art-card,.goal-card,.contact-card,.technical-foundation").forEach(card => {
+  card.classList.add("glass-interactive");
+  let frame = null;
+  let pointerX = 0;
+  let pointerY = 0;
+  const resetSurface = () => {
+    if (frame !== null) cancelAnimationFrame(frame);
+    frame = null;
+    card.classList.remove("glass-tracking");
+    card.style.removeProperty("--glass-x");
+    card.style.removeProperty("--glass-y");
+  };
+  card.addEventListener("pointermove", event => {
+    if (!glassPointer.matches || glassReducedMotion.matches || event.pointerType === "touch") return;
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    if (frame !== null) return;
+    frame = requestAnimationFrame(() => {
+      frame = null;
+      const bounds = card.getBoundingClientRect();
+      card.style.setProperty("--glass-x", `${pointerX - bounds.left}px`);
+      card.style.setProperty("--glass-y", `${pointerY - bounds.top}px`);
+      card.classList.add("glass-tracking");
+    });
+  }, { passive:true });
+  card.addEventListener("pointerleave", resetSurface);
+  card.addEventListener("pointercancel", resetSurface);
+  glassReducedMotion.addEventListener("change", resetSurface);
+  glassPointer.addEventListener("change", resetSurface);
+});
 
 qsa(".faq details").forEach(detail => detail.addEventListener("toggle", () => {
   if (!detail.open) return;
