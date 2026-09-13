@@ -376,7 +376,7 @@
 
   function loadPortfolio() {
     const script = document.createElement("script");
-    script.src = "app.js?v=20260912-glass-cards";
+    script.src = "app.js?v=20260913-glass-handoff";
     script.onload = () => {
       window.removeEventListener("pointermove", trackGateCursor);
       document.body.classList.remove("language-pending");

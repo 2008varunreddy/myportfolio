@@ -1,21 +1,24 @@
 /*
- * Liquid Glass review theme
+ * Liquid Glass theme
  * Neutral glass surfaces with restrained, content-safe interactions.
  */
 
 :root {
-  --stone: #c9beaa;
-  --paper: #ded4c5;
+  --stone: #d5cdbf;
+  --paper: #e4ddd2;
   --ink: #10131a;
   --yellow: #f2ff42;
   --white: #fbfdff;
-  --glass-fill: rgba(255, 255, 255, 0.38);
-  --glass-fill-strong: rgba(255, 255, 255, 0.56);
-  --glass-edge: rgba(255, 255, 255, 0.76);
-  --glass-shadow: 0 10px 28px rgba(25, 28, 27, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  --glass-shadow-hover: 0 18px 38px rgba(25, 28, 27, 0.13),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --glass-fill: linear-gradient(145deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.52));
+  --glass-fill-strong: rgba(255, 255, 255, 0.82);
+  --glass-edge: rgba(255, 255, 255, 0.92);
+  --glass-shadow: 0 12px 30px rgba(55, 45, 31, 0.16),
+    0 2px 6px rgba(55, 45, 31, 0.08),
+    0 0 0 1px rgba(85, 70, 49, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  --glass-shadow-hover: 0 20px 40px rgba(55, 45, 31, 0.2),
+    0 0 0 1px rgba(85, 70, 49, 0.2),
+    inset 0 1px 0 #fff;
   --glass-radius: 20px;
 }
 
@@ -63,8 +66,8 @@ main,
 /* Shared optical material */
 .glass-panel,
 .quote-card {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.22));
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-edge);
   box-shadow: var(--glass-shadow);
   -webkit-backdrop-filter: blur(28px) saturate(185%);
   backdrop-filter: blur(28px) saturate(185%);
@@ -258,10 +261,26 @@ main,
 
 .hero-nav {
   padding: 9px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.62);
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 14px 34px rgba(49, 71, 101, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.84);
+  background: transparent;
+  isolation: isolate;
+}
+
+/* This surface travels with the entire navigation group, not just its text. */
+.hero-nav::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -1px;
+  top: -1px;
+  width: var(--nav-glass-width, calc(100% + 2px));
+  height: var(--nav-glass-height, calc(100% + 2px));
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--nav-glass-radius, 999px);
+  pointer-events: none;
+  background: var(--glass-fill);
+  box-shadow: var(--glass-shadow);
   -webkit-backdrop-filter: blur(20px) saturate(170%);
   backdrop-filter: blur(20px) saturate(170%);
 }
@@ -299,8 +318,8 @@ main,
 .traits-card {
   color: #fff;
   border-radius: 20px;
-  background: linear-gradient(145deg, rgba(35, 38, 37, 0.44), rgba(35, 38, 37, 0.3));
-  border-color: rgba(255, 255, 255, 0.45);
+  background: linear-gradient(145deg, rgba(35, 38, 37, 0.66), rgba(35, 38, 37, 0.5));
+  border-color: rgba(255, 255, 255, 0.7);
   box-shadow: var(--glass-shadow);
   -webkit-backdrop-filter: blur(26px) saturate(175%);
   backdrop-filter: blur(26px) saturate(175%);
@@ -490,7 +509,7 @@ main,
 
 a.contact-card:hover {
   transform: none;
-  background: rgba(255, 255, 255, 0.46);
+  background: var(--glass-fill-strong);
   box-shadow: var(--glass-shadow-hover);
 }
 
@@ -575,10 +594,10 @@ a.contact-card:hover {
 @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
   .glass-panel,
   .quote-card,
-  .hero-nav,
+  .hero-nav::before,
   .project-tags span,
   .gallery-count {
-    background: rgba(222, 212, 197, 0.92);
+    background: rgba(228, 221, 210, 0.92);
   }
 
   .sidebar.dark .glass-panel,
@@ -618,7 +637,7 @@ a.contact-card:hover {
     inset: 8px;
     border: 1px solid rgba(255, 255, 255, 0.76);
     border-radius: 30px;
-    background: rgba(222, 212, 197, 0.84);
+    background: rgba(228, 221, 210, 0.84);
     box-shadow: 0 30px 90px rgba(35, 57, 84, 0.24), inset 0 1px 0 #fff;
     -webkit-backdrop-filter: blur(30px) saturate(185%);
     backdrop-filter: blur(30px) saturate(185%);

@@ -334,30 +334,49 @@ function createMotionScenes() {
   ScrollTrigger.matchMedia({
     "(min-width: 901px)": () => {
       const rect = element => element?.getBoundingClientRect();
-      const sidePanels = qsa(".sidebar > *");
+      const sideNav = qs(".side-nav");
+      const sidePanels = qsa(".sidebar > *").filter(panel => panel !== sideNav);
       const morphPairs = [
         [heroWord, qs(".side-logo-target"), .055, .24],
         [qs(".projects-stat"), qs(".side-projects-target"), .085, .21],
         [qs(".years-stat"), qs(".side-years-target"), .1, .21],
         [qs(".hero-actions a:first-child"), qs(".book-button"), .15, .2]
       ];
-      qsa(".hero-nav a").forEach(link => {
-        const target = qs(`.side-nav a[href="${link.getAttribute("href")}"] .side-label`);
-        if (target) morphPairs.push([link, target, .075, .22]);
-      });
+      // Move each glass shell and its labels in one shared coordinate space.
+      // Natural offsets stay unchanged, so refreshes can remeasure at any scroll position.
+      const navGroups = heroNavs.map(source => ({
+        source,
+        links: qsa("a", source).map(link => ({
+          source: link,
+          target: qs(`.side-nav a[href="${link.getAttribute("href")}"] .side-label`)
+        })).filter(link => link.target)
+      }));
+      const navGeometry = group => {
+        const menu = rect(sideNav);
+        const rows = qsa(":scope > a", sideNav);
+        const split = (rect(rows[2]).bottom + rect(rows[3]).top) / 2;
+        const top = group.source.classList.contains("left") ? menu.top : split;
+        const bottom = group.source.classList.contains("left") ? split : menu.bottom;
+        return {
+          x: menu.left - group.source.offsetLeft,
+          y: top - group.source.offsetTop,
+          left: menu.left,
+          top,
+          width: menu.width,
+          height: bottom - top
+        };
+      };
       const morphGeometry = morphPairs.filter(pair => pair[0] && pair[1]).map(([source, target, at, duration]) => {
         const from = rect(source);
         const to = rect(target);
         return { source, target, at, duration, x:to.left-from.left, y:to.top-from.top, scaleX:to.width/from.width, scaleY:to.height/from.height };
       });
       const morphTargets = morphGeometry.map(item => item.target);
-      const sideEarlyDetails = qsa(".side-nav .nav-icon,.client-strip,.email-copy");
-      const sideLateDetails = qsa(".side-intro p,.socials");
 
       gsap.set(sidebar, { xPercent: 0, autoAlpha: 1, pointerEvents:"none" });
-      gsap.set(sidePanels, { y:12, autoAlpha:0 });
+      gsap.set(sidePanels, { x:36, y:0, autoAlpha:0 });
+      gsap.set(sideNav, { x:0, y:0, autoAlpha:0 });
       gsap.set(morphTargets, { autoAlpha:0 });
-      gsap.set([...sideEarlyDetails, ...sideLateDetails], { autoAlpha:0 });
 
       const heroTimeline = gsap.timeline({
         defaults: { ease: "none" },
@@ -375,15 +394,39 @@ function createMotionScenes() {
       heroTimeline
         .to([qs(".hero-kicker"), qs(".hero-copy"), qs(".scroll-note")], { yPercent: -100, autoAlpha: 0, duration: .05 }, .05)
         .to(qsa(".hero-nav i"), { autoAlpha: 0, duration: .04 }, .01)
-        .to(heroNavs, { autoAlpha: 0, duration: .08 }, .3)
         .to(heroTraits, { x: "-25vw", y: "-5vw", scale: .3, autoAlpha: 0, duration: .15, ease:"power1.inOut" }, .05)
         .to(heroPhoto, { y: "23vh", scale: 2.12, filter: "blur(90px)", autoAlpha:.3, duration: .67 }, .03)
         .to(heroTitle, { x: "38vw", y: "-40vh", scale: .58, filter:"blur(18px)", autoAlpha:0, duration: .37, ease:"power1.inOut" }, .08)
         .to(qs(".hero-actions a:last-child"), { y:20, autoAlpha:0, duration:.16 }, .18)
-        .to(sidePanels, { y:0, autoAlpha:1, duration:.1, stagger:.008, ease:"power1.out" }, .22)
-        .to(sideEarlyDetails, { autoAlpha:1, duration:.05, stagger:.006 }, .29)
-        .to(sideLateDetails, { autoAlpha:1, duration:.08, stagger:.01 }, .62)
+        .to(sidePanels, { x:0, autoAlpha:1, duration:.16, stagger:.012, ease:"power3.out" }, .2)
+        .to(sideNav, { autoAlpha:1, duration:.04 }, .36)
+        .to(heroNavs, { autoAlpha:0, duration:.04 }, .36)
         .set(sidebar, { pointerEvents:"auto" }, .42);
+
+      navGroups.forEach(group => {
+        heroTimeline.fromTo(group.source, {
+          x:0, y:0,
+          "--nav-glass-width": () => `${group.source.offsetWidth}px`,
+          "--nav-glass-height": () => `${group.source.offsetHeight}px`,
+          "--nav-glass-radius": "24px"
+        }, {
+          x: () => navGeometry(group).x,
+          y: () => navGeometry(group).y,
+          "--nav-glass-width": () => `${navGeometry(group).width}px`,
+          "--nav-glass-height": () => `${navGeometry(group).height}px`,
+          "--nav-glass-radius": "16px",
+          duration:.28, ease:"power2.inOut"
+        }, .08);
+        group.links.forEach(link => {
+          heroTimeline.fromTo(link.source, { x:0, y:0, scaleX:1, scaleY:1 }, {
+            x: () => rect(link.target).left - navGeometry(group).left - link.source.offsetLeft,
+            y: () => rect(link.target).top - navGeometry(group).top - link.source.offsetTop,
+            scaleX: () => rect(link.target).width / link.source.offsetWidth,
+            scaleY: () => rect(link.target).height / link.source.offsetHeight,
+            transformOrigin:"left top", duration:.28, ease:"power2.inOut"
+          }, .08);
+        });
+      });
 
       morphGeometry.forEach(item => {
         const handoff = item.at + item.duration;

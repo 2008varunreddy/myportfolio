@@ -44,4 +44,4 @@ The workflow at `.github/workflows/deploy-pages.yml` automatically deploys the `
 ## Contact
 
 - GitHub: [2008varunreddy](https://github.com/2008varunreddy)
-- Email: [2007.nvarunr@gmail.com](mailto:2007.nvarunr@gmail.com)
+- Email: [2008.varunreddy@gmail.com](mailto:2008.varunreddy@gmail.com)
