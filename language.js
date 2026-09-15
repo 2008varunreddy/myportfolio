@@ -102,7 +102,7 @@
     const nav = ["홈", "소개", "프로젝트", "아트", "목표", "연락처"];
     document.documentElement.lang = "ko";
     document.title = "난디 바룬 레디 | 컴퓨터과학 및 사이버보안 포트폴리오";
-    const koreanDescription = "인도 텔랑가나의 컴퓨터과학 및 사이버보안 학생 난디 바룬 레디가 Python으로 만든 네트워크 보안, 패킷 분석, 로그 분석 프로젝트를 소개하는 이중 언어 포트폴리오입니다.";
+    const koreanDescription = "인도 텔랑가나 출신으로 컴퓨터과학과 사이버보안을 공부하는 학생 난디 바룬 레디의 이중 언어 포트폴리오입니다. Python으로 만든 네트워크 보안, 패킷 분석, 로그 분석 프로젝트를 소개합니다.";
     setAttribute('meta[name="description"]', "content", koreanDescription);
     setAttribute('meta[property="og:title"]', "content", "난디 바룬 레디 | 컴퓨터과학 및 사이버보안 포트폴리오");
     setAttribute('meta[property="og:description"]', "content", koreanDescription);
@@ -115,9 +115,9 @@
     setAttribute(".sidebar", "aria-label", "포트폴리오 내비게이션");
     setAttribute(".socials a:first-child", "aria-label", "바룬의 GitHub");
     setAttribute(".socials a:last-child", "aria-label", "바룬에게 이메일 보내기");
-    setHtml(".side-intro > p", "<strong class=\"inline-full-name\">난디 바룬 레디</strong>는 네트워킹, Linux, 윤리적 보안, 위협 탐지를 배우며 실용적인 Python 도구를 만드는 컴퓨터과학 및 사이버보안 학생입니다.");
+    setHtml(".side-intro > p", "<strong class=\"inline-full-name\">난디 바룬 레디</strong>는 컴퓨터과학과 사이버보안을 공부하는 학생입니다. 네트워크, Linux, 보안 윤리, 위협 탐지를 배우며 실용적인 Python 도구를 만들고 있습니다.");
     setHtml(".side-projects-target span", "<b>보안</b> 프로젝트");
-    setHtml(".side-years-target span", "인증된<br />수료증");
+    setHtml(".side-years-target span", "취득한<br />수료증");
     setList(".side-label", nav);
     setList(".hero-nav a", nav);
     setOwnTextList(".mobile-menu nav a", nav);
@@ -125,23 +125,23 @@
     setAttribute(".client-strip", "aria-label", "기술: Python, Linux, 보안, 아트");
     setText(".book-button", "문의하기");
 
-    setHtml(".hero-kicker", "보안을 만드는 사람.<br />바로 바룬입니다.<small><strong class=\"hero-full-name\">난디 바룬 레디</strong><span>컴퓨터과학 및 사이버보안 학생</span></small>");
+    setHtml(".hero-kicker", "보안 도구를 만드는<br />바룬입니다.<small><strong class=\"hero-full-name\">난디 바룬 레디</strong><span>컴퓨터과학과 사이버보안을 공부하는 학생</span></small>");
     setAttribute(".hero-photo", "alt", "난디 바룬 레디의 인물 사진");
-    setHtml(".hero-title h1", "<span>보안을,</span><span>실전에</span><span>적용하다.</span>");
+    setHtml(".hero-title h1", "<span>보안을</span><span>실용적으로</span><span>구현하다.</span>");
     setText(".hero-actions a:first-child", "문의하기");
     setText(".hero-actions a:last-child", "소개 보기");
     setHtml(".projects-stat span", "<b>보안</b> 프로젝트");
-    setHtml(".years-stat span", "인증된<br />수료증");
-    setOwnTextList(".traits-card > span", ["창의적", "신뢰할 수 있는", "전략적", "실행하는 사람", "효율적"]);
-    setText(".hero-copy", "네트워킹, Linux, 윤리적 보안, 위협 탐지를 배우며 실용적인 Python 도구를 만드는 컴퓨터과학 및 사이버보안 학생입니다.");
+    setHtml(".years-stat span", "취득한<br />수료증");
+    setOwnTextList(".traits-card > span", ["창의성", "신뢰성", "전략적 사고", "실행력", "효율성"]);
+    setText(".hero-copy", "네트워크, Linux, 보안 윤리, 위협 탐지를 배우며 실용적인 Python 도구를 만드는 학생입니다. 컴퓨터과학과 사이버보안을 공부하고 있습니다.");
     setText(".scroll-note span", "스크롤하여 둘러보기");
 
-    setText(".about .eyebrow", "학습 · 제작 · 보안");
-    setHtml(".about .section-heading h2", "나에 대해 (&amp;)<br />나의 여정");
-    setHtml(".about .section-heading > p", "저는 인도 텔랑가나 출신의 컴퓨터과학 및 사이버보안에 관심이 있는 학생 <strong class=\"inline-full-name\">난디 바룬 레디</strong>입니다. Python 프로젝트를 통해 네트워킹, 방어형 보안, 자동화, 위협 탐지를 더욱 실용적으로 이해하고 있습니다. 기술 밖에서는 흑연 드로잉을 통해 인내심, 관찰력, 세부 사항에 대한 주의력을 길렀습니다.");
+    setText(".about .eyebrow", "학습 · 개발 · 보안");
+    setHtml(".about .section-heading h2", "자기소개와<br />성장 과정");
+    setHtml(".about .section-heading > p", "저는 인도 텔랑가나 출신으로, 컴퓨터과학과 사이버보안에 관심을 가지고 공부하는 <strong class=\"inline-full-name\">난디 바룬 레디</strong>입니다. Python 프로젝트를 통해 네트워크, 방어 중심의 보안, 자동화, 위협 탐지를 실제로 적용하며 이해를 넓히고 있습니다. 기술 공부 외에는 흑연 드로잉을 즐기며 인내심과 세밀한 관찰력을 길러 왔습니다.");
     setText(".timeline-card:nth-of-type(1) .year", "10학년");
     setText(".timeline-card:nth-of-type(1) h3", "10학년");
-    setText(".timeline-card:nth-of-type(1) > p", "스스로 꾸준히 학습하는 규율을 길러 준 탄탄한 학업 기반입니다.");
+    setText(".timeline-card:nth-of-type(1) > p", "탄탄한 학업 기초를 쌓고, 스스로 꾸준히 공부하는 습관을 길렀습니다.");
     setText(".timeline-card:nth-of-type(1) .academic-score small", "평점");
     setHtml(".timeline-card:nth-of-type(1) .card-meta > span", "평균 평점<br /><em>학업 성적</em>");
     setText(".timeline-card:nth-of-type(2) .year", "11학년");
@@ -152,29 +152,29 @@
     setText(".timeline-card:nth-of-type(3) h3", "12학년");
     setText(".timeline-card:nth-of-type(3) > p", "인내와 꾸준함, 세부 사항에 대한 집중력을 보여 주는 성적으로 학교 과정을 마쳤습니다.");
     setHtml(".timeline-card:nth-of-type(3) .card-meta > span", "979 / 1000점<br /><em>학업 성적</em>");
-    setText(".timeline-card:nth-of-type(4) > p", "Harvard University의 CS50에서 제공하는 Python 프로그래밍 입문 과정입니다.");
-    setHtml(".timeline-card:nth-of-type(4) .card-meta > span", "Python 프로그래밍<br /><em>인증된 과정</em>");
-    setText(".timeline-card:nth-of-type(5) h3", "프리 시큐리티 과정");
-    setText(".timeline-card:nth-of-type(5) > p", "컴퓨터, 네트워킹, 웹, 보안의 핵심 기초를 다루는 TryHackMe 프리 시큐리티 학습 경로입니다.");
-    setHtml(".timeline-card:nth-of-type(5) .card-meta > span", "TryHackMe 프리 시큐리티<br /><em>인증된 과정</em>");
+    setText(".timeline-card:nth-of-type(4) > p", "하버드대학교 CS50에서 제공하는 Python 프로그래밍 입문 과정입니다.");
+    setHtml(".timeline-card:nth-of-type(4) .card-meta > span", "Python 프로그래밍<br /><em>수료한 과정</em>");
+    setText(".timeline-card:nth-of-type(5) h3", "Pre Security 보안 기초 과정");
+    setText(".timeline-card:nth-of-type(5) > p", "컴퓨터, 네트워크, 웹, 보안의 기초를 다루는 TryHackMe Pre Security 학습 과정입니다.");
+    setHtml(".timeline-card:nth-of-type(5) .card-meta > span", "TryHackMe Pre Security<br /><em>수료한 과정</em>");
     setText(".timeline-card:nth-of-type(6) h3", "IELTS 아카데믹");
     setText(".timeline-card:nth-of-type(6) > p", "학업 목적의 듣기, 읽기, 쓰기, 말하기 전 영역에서 높은 영어 능력을 입증한 종합 밴드 점수입니다.");
     setHtml(".timeline-card:nth-of-type(6) .card-meta > span", "듣기 7.5 · 읽기 7.5 · 쓰기 8.0 · 말하기 6.5<br /><em>종합 밴드 점수 · CEFR C1</em>");
     setText(".certificate-link", "수료증 보기 ↗");
 
-    setText(".technical-foundation .eyebrow", "현재의 기초");
-    setText(".technical-foundation h3", "기술 기초");
-    setList(".foundation-group dt", ["프로그래밍", "사이버보안", "네트워킹", "도구 / 기술", "시스템"]);
+    setText(".technical-foundation .eyebrow", "현재 보유한 기술");
+    setText(".technical-foundation h3", "기초 기술 역량");
+    setList(".foundation-group dt", ["프로그래밍", "사이버보안", "네트워크", "도구 / 기술", "시스템"]);
     setList(".foundation-group dd", [
       "Python",
-      "네트워크 보안, 로그 분석, 기본 위협 탐지, 윤리적 보안 개념",
+      "네트워크 보안, 로그 분석, 기초 위협 탐지, 보안 윤리와 책임 있는 보안 실습의 기본 개념",
       "TCP/IP 기초, 포트 및 서비스, 패킷 분석, DNS, ICMP",
       "Git, GitHub, Scapy, Streamlit",
       "Linux 기초, 명령줄"
     ]);
 
-    setText(".work-intro .eyebrow", "선정 프로젝트");
-    setHtml(".work-intro h2", "탐지하도록 만들고,<br />이해하도록 설계하다");
+    setText(".work-intro .eyebrow", "주요 프로젝트");
+    setHtml(".work-intro h2", "위협을 탐지하고,<br />결과를 이해하기 쉽게");
     setText(".work-intro > p", "제가 학습하는 방식을 보여 주는 세 가지 프로젝트입니다. 도구를 만들고, 허가된 환경에서 테스트하고, 결과를 문서화해 누구나 쉽게 살펴볼 수 있게 했습니다.");
     setAttribute(".project-card:nth-child(1) .project-gallery", "aria-label", "네트워크 보안 모니터 스크린샷");
     setAttribute(".project-card:nth-child(2) .project-gallery", "aria-label", "포트 취약점 스캐너 스크린샷");
@@ -183,44 +183,44 @@
     setList(".project-card:nth-child(2) .project-tags span", ["02", "Python", "네트워크", "위험"]);
     setList(".project-card:nth-child(3) .project-tags span", ["03", "Python", "로그", "방어"]);
     setText(".project-card:nth-child(1) .project-info h3", "네트워크 보안 모니터");
-    setText(".project-card:nth-child(1) .project-summary", "실시간 트래픽을 캡처하고, 패킷 동작을 분석하며, 규칙 기반 탐지를 적용하고, 보안 경보를 기록하며, 실시간 Streamlit 대시보드를 통해 네트워크 활동을 시각화하는 Python 기반 네트워크 보안 모니터입니다.");
-    setText(".project-card:nth-child(1) .project-proof", "패킷 검사, 네트워크 프로토콜 분석, 동작 기반 탐지 규칙, 지속적인 보고, 시각화, 자동화된 규칙 테스트를 보여 줍니다.");
+    setText(".project-card:nth-child(1) .project-summary", "실시간 네트워크 트래픽을 수집하고 패킷의 통신 패턴을 분석하는 Python 기반 보안 모니터입니다. 규칙 기반으로 의심스러운 활동을 탐지하고 보안 경보를 기록하며, Streamlit 대시보드에서 네트워크 활동을 실시간으로 시각화합니다.");
+    setText(".project-card:nth-child(1) .project-proof", "패킷 분석, 네트워크 프로토콜 분석, 행위 기반 탐지 규칙, 보고서 및 경보 기록의 저장·보존, 시각화, 탐지 규칙 자동 테스트를 구현했습니다.");
     setText(".project-card:nth-child(2) .project-info h3", "포트 취약점 스캐너");
-    setText(".project-card:nth-child(2) .project-summary", "허가된 대상에서 선택한 포트를 스캔하고, 노출된 서비스를 식별하며, 기본적인 보안 위험을 평가하고 권고 사항을 생성하는 Python 네트워킹 도구입니다.");
-    setText(".project-card:nth-child(2) .project-proof", "Python 소켓 프로그래밍, 서비스 식별, 모듈형 프로그램 구조, 위험 분류, 보고서 생성을 보여 줍니다.");
+    setText(".project-card:nth-child(2) .project-summary", "스캔이 허가된 대상의 지정된 포트를 검사하고, 외부에 노출된 서비스를 식별하는 Python 네트워크 도구입니다. 기본적인 보안 위험을 평가하고 대응 권고 사항을 담은 보고서를 생성합니다.");
+    setText(".project-card:nth-child(2) .project-proof", "Python 소켓 프로그래밍, 서비스 식별, 모듈형 프로그램 설계, 위험도 분류, 보고서 생성을 구현했습니다.");
     setText(".project-card:nth-child(3) .project-info h3", "로그 분석기");
-    setText(".project-card:nth-child(3) .project-summary", "Apache 형식의 로그를 구문 분석해 로그인 실패 시도, 관리자 경로 접근, 반복되는 404 오류, 요청 활동, 의심스러운 동작과 같은 패턴을 식별하는 Python 로그 분석 도구입니다.");
-    setText(".project-card:nth-child(3) .project-proof", "정규 표현식, 로그 구문 분석, 규칙 기반 분석, IP 활동 추적, 위험 분류, 보고서 생성을 보여 줍니다.");
+    setText(".project-card:nth-child(3) .project-summary", "Apache 형식의 접근 로그를 파싱하여 로그인 실패, 관리자 경로 접근, 반복되는 404 오류, 요청 활동, 의심스러운 행위 패턴을 식별하는 Python 로그 분석 도구입니다.");
+    setText(".project-card:nth-child(3) .project-proof", "정규 표현식, 로그 파싱, 규칙 기반 분석, IP별 활동 추적, 위험도 분류, 보고서 생성을 구현했습니다.");
     setText(".project-card .project-actions a:first-child", "데모 ↗");
-    setAttribute('.project-card:nth-child(1) img:nth-child(1)', 'alt', '실시간 패킷 합계와 프로토콜 분포를 보여 주는 Streamlit 대시보드');
+    setAttribute('.project-card:nth-child(1) img:nth-child(1)', 'alt', '실시간 네트워크 패킷 수와 프로토콜 분포를 보여 주는 Streamlit 대시보드');
     setAttribute('.project-card:nth-child(1) img:nth-child(2)', 'alt', '프로토콜 분포, 현재 경보, 경보 기록을 보여 주는 네트워크 모니터 대시보드');
-    setAttribute('.project-card:nth-child(1) img:nth-child(3)', 'alt', '네트워크 보안 모니터 자동 탐지 테스트가 통과된 터미널 화면');
-    setAttribute('.project-card:nth-child(2) img:nth-child(1)', 'alt', '포트 스캐너 소스 코드');
-    setAttribute('.project-card:nth-child(2) img:nth-child(2)', 'alt', '스캐너 대상 입력 화면');
-    setAttribute('.project-card:nth-child(2) img:nth-child(3)', 'alt', '포트 취약점 보고서');
-    setAttribute('.project-card:nth-child(2) img:nth-child(4)', 'alt', '저장된 포트 스캔 보고서');
+    setAttribute('.project-card:nth-child(1) img:nth-child(3)', 'alt', '네트워크 보안 모니터의 자동 탐지 테스트가 통과했음을 보여 주는 터미널 화면');
+    setAttribute('.project-card:nth-child(2) img:nth-child(1)', 'alt', '모듈형 포트 취약점 스캐너의 Python 소스 코드');
+    setAttribute('.project-card:nth-child(2) img:nth-child(2)', 'alt', '스캔이 허가된 대상을 입력하는 터미널 화면');
+    setAttribute('.project-card:nth-child(2) img:nth-child(3)', 'alt', '열린 서비스, 위험도 분류, 대응 권고 사항을 보여 주는 터미널 보고서');
+    setAttribute('.project-card:nth-child(2) img:nth-child(4)', 'alt', '텍스트 파일로 저장된 포트 취약점 스캐너 보고서');
     setAttribute('.project-card:nth-child(3) img:nth-child(1)', 'alt', '로그 분석기 및 위협 탐지기 Python 소스 코드');
     setAttribute('.project-card:nth-child(3) img:nth-child(2)', 'alt', 'Apache 형식의 로그 파일을 분석하는 터미널 화면');
     setAttribute('.project-card:nth-child(3) img:nth-child(3)', 'alt', '요청 활동, 로그인 실패, 404 오류, 관리자 접근을 요약한 터미널 보고서');
     setAttribute('.project-card:nth-child(3) img:nth-child(4)', 'alt', 'IP 요청 수를 보여 주는 저장된 로그 분석 보고서');
 
-    setText(".services .eyebrow", "원작 드로잉");
-    setText(".services .section-heading h2", "흑연 미술");
+    setText(".services .eyebrow", "직접 그린 작품");
+    setText(".services .section-heading h2", "흑연 드로잉");
     setText(".services .section-heading > p", "예술은 보안에서 중요하게 여기는 인내, 관찰력, 정확성, 그리고 다른 사람이 지나치기 쉬운 세부 사항을 보는 힘을 길러 줍니다.");
     setAttribute('.art-card:nth-child(1) .art-image', 'alt', '피리와 화려한 장신구를 표현한 두 신화적 인물의 정교한 흑연 드로잉');
     setAttribute('.art-card:nth-child(2) .art-image', 'alt', '전통 장신구와 사리를 착용한 여성의 흑연 인물화');
     setAttribute('.art-card:nth-child(3) .art-image', 'alt', '표현력 있는 눈과 섬세한 얼굴 질감에 초점을 맞춘 흑연 클로즈업 인물화');
 
     setText(".testimonials .eyebrow", "목표");
-    setHtml(".testimonials .section-heading h2", "내가 향하는 곳<br />그리고 그 이유");
+    setHtml(".testimonials .section-heading h2", "앞으로의 목표와<br />그 이유");
     setAttribute(".testimonial-track", "aria-label", "목표 카드");
     setText(".goal-card:nth-child(1) h3", "사이버보안 실무자");
-    setText(".goal-card:nth-child(1) > p", "컴퓨터과학을 공부하고 Linux와 네트워킹 기초를 강화하며, 실용적인 탐지 및 방어 도구를 구축하는 동시에 보안 업무에 필요한 더 깊은 판단력을 기르겠습니다.");
-    setText(".goal-card:nth-child(1) footer strong", "보안 방향");
+    setText(".goal-card:nth-child(1) > p", "컴퓨터과학을 공부하며 Linux와 네트워크 기초를 탄탄히 다지고, 실용적인 위협 탐지 및 방어 도구를 만들겠습니다. 이 과정에서 보안 업무에 필요한 판단력도 함께 기르겠습니다.");
+    setText(".goal-card:nth-child(1) footer strong", "보안 분야의 성장 방향");
     setText(".goal-card:nth-child(1) footer small", "탐지 및 방어");
-    setText(".goal-card:nth-child(2) h3", "제작을 통한 학습");
-    setText(".goal-card:nth-child(2) > p", "방어형 프로젝트를 계속 만들고, 초급 실습 랩과 CTF에서 연습하며, 배운 내용을 기록하고, 각 프로젝트를 통해 기술 작업의 깊이를 더하겠습니다.");
-    setText(".goal-card:nth-child(2) footer strong", "빌더 분야");
+    setText(".goal-card:nth-child(2) h3", "직접 만들며 배우기");
+    setText(".goal-card:nth-child(2) > p", "보안 방어 프로젝트를 꾸준히 만들고, 입문용 실습 환경과 CTF에서 연습하며 배운 내용을 기록하겠습니다. 각 프로젝트를 통해 기술 역량을 더욱 탄탄히 쌓겠습니다.");
+    setText(".goal-card:nth-child(2) footer strong", "개발자로서의 성장 방향");
     setText(".goal-card:nth-child(2) footer small", "Python · 프로젝트 · 커뮤니티");
     setText(".drag-hint", "드래그 / 스크롤");
 
