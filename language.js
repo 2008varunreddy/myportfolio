@@ -29,7 +29,7 @@
     emailCopied: "이메일 주소가 복사되었습니다",
     readLess: "접기",
     readMore: "더 보기",
-    mailSubject: name => `${name}님의 포트폴리오 문의`,
+    mailSubject: name => `포트폴리오를 통한 문의: ${name}`,
     mailFrom: "보낸 사람",
     mailEmail: "이메일"
   };
@@ -106,6 +106,7 @@
     setAttribute('meta[name="description"]', "content", koreanDescription);
     setAttribute('meta[property="og:title"]', "content", "난디 바룬 레디 | 컴퓨터과학 및 사이버보안 포트폴리오");
     setAttribute('meta[property="og:description"]', "content", koreanDescription);
+    setAttribute('meta[property="og:image:alt"]', "content", "난디 바룬 레디의 인물 사진");
     setHtml(".language-mark,.brand-chip", "바룬<sup>®</sup>");
     setText(".hero-word,.loader-word", "바룬");
     setHtml(".footer-word", "바룬<sup>®</sup>");
@@ -179,7 +180,7 @@
     setAttribute(".project-card:nth-child(1) .project-gallery", "aria-label", "네트워크 보안 모니터 스크린샷");
     setAttribute(".project-card:nth-child(2) .project-gallery", "aria-label", "포트 취약점 스캐너 스크린샷");
     setAttribute(".project-card:nth-child(3) .project-gallery", "aria-label", "로그 분석기 스크린샷");
-    setList(".project-card:nth-child(1) .project-tags span", ["01", "Python", "Scapy", "Streamlit", "네트워킹", "규칙 기반 탐지"]);
+    setList(".project-card:nth-child(1) .project-tags span", ["01", "Python", "Scapy", "Streamlit", "네트워크", "규칙 기반 탐지"]);
     setList(".project-card:nth-child(2) .project-tags span", ["02", "Python", "네트워크", "위험"]);
     setList(".project-card:nth-child(3) .project-tags span", ["03", "Python", "로그", "방어"]);
     setText(".project-card:nth-child(1) .project-info h3", "네트워크 보안 모니터");
@@ -189,7 +190,7 @@
     setText(".project-card:nth-child(2) .project-summary", "스캔이 허가된 대상의 지정된 포트를 검사하고, 외부에 노출된 서비스를 식별하는 Python 네트워크 도구입니다. 기본적인 보안 위험을 평가하고 대응 권고 사항을 담은 보고서를 생성합니다.");
     setText(".project-card:nth-child(2) .project-proof", "Python 소켓 프로그래밍, 서비스 식별, 모듈형 프로그램 설계, 위험도 분류, 보고서 생성을 구현했습니다.");
     setText(".project-card:nth-child(3) .project-info h3", "로그 분석기");
-    setText(".project-card:nth-child(3) .project-summary", "Apache 형식의 접근 로그를 파싱하여 로그인 실패, 관리자 경로 접근, 반복되는 404 오류, 요청 활동, 의심스러운 행위 패턴을 식별하는 Python 로그 분석 도구입니다.");
+    setText(".project-card:nth-child(3) .project-summary", "Apache 형식의 접근 로그를 파싱하여 로그인 시도 실패, 관리자 경로 접근, 반복되는 404 오류 등 요청 내역과 의심스러운 행위 패턴을 분석하는 Python 로그 분석 도구입니다.");
     setText(".project-card:nth-child(3) .project-proof", "정규 표현식, 로그 파싱, 규칙 기반 분석, IP별 활동 추적, 위험도 분류, 보고서 생성을 구현했습니다.");
     setText(".project-card .project-actions a:first-child", "데모 ↗");
     setAttribute('.project-card:nth-child(1) img:nth-child(1)', 'alt', '실시간 네트워크 패킷 수와 프로토콜 분포를 보여 주는 Streamlit 대시보드');
@@ -197,17 +198,17 @@
     setAttribute('.project-card:nth-child(1) img:nth-child(3)', 'alt', '네트워크 보안 모니터의 자동 탐지 테스트가 통과했음을 보여 주는 터미널 화면');
     setAttribute('.project-card:nth-child(2) img:nth-child(1)', 'alt', '모듈형 포트 취약점 스캐너의 Python 소스 코드');
     setAttribute('.project-card:nth-child(2) img:nth-child(2)', 'alt', '스캔이 허가된 대상을 입력하는 터미널 화면');
-    setAttribute('.project-card:nth-child(2) img:nth-child(3)', 'alt', '열린 서비스, 위험도 분류, 대응 권고 사항을 보여 주는 터미널 보고서');
+    setAttribute('.project-card:nth-child(2) img:nth-child(3)', 'alt', '열린 포트에서 실행 중인 서비스, 위험도 분류, 대응 권고 사항을 보여 주는 터미널 보고서');
     setAttribute('.project-card:nth-child(2) img:nth-child(4)', 'alt', '텍스트 파일로 저장된 포트 취약점 스캐너 보고서');
     setAttribute('.project-card:nth-child(3) img:nth-child(1)', 'alt', '로그 분석기 및 위협 탐지기 Python 소스 코드');
     setAttribute('.project-card:nth-child(3) img:nth-child(2)', 'alt', 'Apache 형식의 로그 파일을 분석하는 터미널 화면');
-    setAttribute('.project-card:nth-child(3) img:nth-child(3)', 'alt', '요청 활동, 로그인 실패, 404 오류, 관리자 접근을 요약한 터미널 보고서');
-    setAttribute('.project-card:nth-child(3) img:nth-child(4)', 'alt', 'IP 요청 수를 보여 주는 저장된 로그 분석 보고서');
+    setAttribute('.project-card:nth-child(3) img:nth-child(3)', 'alt', '요청 내역, 로그인 시도 실패, 404 오류, 관리자 경로 접근을 요약한 터미널 보고서');
+    setAttribute('.project-card:nth-child(3) img:nth-child(4)', 'alt', 'IP 주소별 요청 수를 보여 주는 저장된 로그 분석 보고서');
 
     setText(".services .eyebrow", "직접 그린 작품");
     setText(".services .section-heading h2", "흑연 드로잉");
-    setText(".services .section-heading > p", "예술은 보안에서 중요하게 여기는 인내, 관찰력, 정확성, 그리고 다른 사람이 지나치기 쉬운 세부 사항을 보는 힘을 길러 줍니다.");
-    setAttribute('.art-card:nth-child(1) .art-image', 'alt', '피리와 화려한 장신구를 표현한 두 신화적 인물의 정교한 흑연 드로잉');
+    setText(".services .section-heading > p", "그림을 그리며 보안 분야에서도 중요하게 여기는 인내심, 관찰력, 정확성, 그리고 다른 사람이 놓치기 쉬운 세부 사항을 살피는 능력을 기릅니다.");
+    setAttribute('.art-card:nth-child(1) .art-image', 'alt', '피리와 화려한 장신구가 돋보이는 신화 속 두 인물을 그린 정교한 흑연 드로잉');
     setAttribute('.art-card:nth-child(2) .art-image', 'alt', '전통 장신구와 사리를 착용한 여성의 흑연 인물화');
     setAttribute('.art-card:nth-child(3) .art-image', 'alt', '표현력 있는 눈과 섬세한 얼굴 질감에 초점을 맞춘 흑연 클로즈업 인물화');
 
@@ -216,10 +217,12 @@
     setAttribute(".testimonial-track", "aria-label", "목표 카드");
     setText(".goal-card:nth-child(1) h3", "사이버보안 실무자");
     setText(".goal-card:nth-child(1) > p", "컴퓨터과학을 공부하며 Linux와 네트워크 기초를 탄탄히 다지고, 실용적인 위협 탐지 및 방어 도구를 만들겠습니다. 이 과정에서 보안 업무에 필요한 판단력도 함께 기르겠습니다.");
+    setText(".goal-card:nth-child(1) footer > span", "보안");
     setText(".goal-card:nth-child(1) footer strong", "보안 분야의 성장 방향");
     setText(".goal-card:nth-child(1) footer small", "탐지 및 방어");
     setText(".goal-card:nth-child(2) h3", "직접 만들며 배우기");
-    setText(".goal-card:nth-child(2) > p", "보안 방어 프로젝트를 꾸준히 만들고, 입문용 실습 환경과 CTF에서 연습하며 배운 내용을 기록하겠습니다. 각 프로젝트를 통해 기술 역량을 더욱 탄탄히 쌓겠습니다.");
+    setText(".goal-card:nth-child(2) > p", "방어 중심의 보안 프로젝트를 꾸준히 만들고, 입문용 실습 환경과 CTF에서 연습하며 배운 내용을 기록하겠습니다. 각 프로젝트를 통해 기술 역량을 더욱 탄탄히 쌓겠습니다.");
+    setText(".goal-card:nth-child(2) footer > span", "개발");
     setText(".goal-card:nth-child(2) footer strong", "개발자로서의 성장 방향");
     setText(".goal-card:nth-child(2) footer small", "Python · 프로젝트 · 커뮤니티");
     setText(".drag-hint", "드래그 / 스크롤");
@@ -238,7 +241,7 @@
     setText('.contact-form label:nth-child(2) > span', '이메일');
     setText('.contact-form label:nth-child(3) > span', '메시지');
     setAttribute('.contact-form textarea', 'placeholder', '전하고 싶은 내용을 적어 주세요.');
-    setText('.contact-form button', '메시지 보내기 ↗');
+    setText('.contact-form button', '이메일 작성하기 ↗');
     setText('.contact-form > small', '메시지가 작성된 상태로 이메일 앱이 열립니다.');
     setText('.toast', '이메일 주소가 복사되었습니다');
   }
